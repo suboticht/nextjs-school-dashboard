@@ -14,12 +14,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        HTSky: "#C3EBFA",
-        HTSkyLight: "#EDF9FD",
-        HTPurple: "#CFCEFF",
-        HTPurpleLight: "#F1F0FF",
-        HTYellow: "#FAE27C",
-        HTYellowLight: "#FEFCE8",
+        HTSky: "#70e4ef",
+        HTSkyLight: "#bde0fe",
+        HTPurple: "#EF709D",
+        HTPurpleLight: "#e7c6ff",
+        HTYellow: "#e2ef70",
+        HTYellowLight: "#fefae0",
       }
     },
   },
