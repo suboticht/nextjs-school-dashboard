@@ -19,7 +19,7 @@ const menuItems = [
       {
         icon: <FaHome size={20} />,
         label: "Home",
-        href: "/",
+        href: "/admin",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
@@ -63,12 +63,12 @@ const menuItems = [
         href: "/profile",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      {
-        icon: <IoMdSettings size={20} />,
-        label: "Settings",
-        href: "/settings",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
+      // {
+      //   icon: <IoMdSettings size={20} />,
+      //   label: "Settings",
+      //   href: "/settings",
+      //   visible: ["admin", "teacher", "student", "parent"],
+      // },
       {
         icon: <IoIosLogOut size={20} />,
         label: "Logout",
@@ -85,25 +85,26 @@ export default function Menu() {
       {/* {Logo} */}
       <div className="flex justify-center items-start mb-2 md:justify-start">
         <Link 
-          href={"/"}
+          href={"/admin"}
           className="flex items-center justify-center gap-2 font-bold hover:opacity-80"
         >
-          <span className="hidden md:block">SchoolHT</span>
+          <span className="hidden md:block text-3xl text-HTPurple">HT</span>
         </Link>
       </div>
       {/* Menu item */}
       <div className="p-1">
         {menuItems.map(item => (
-          <div>
+          <div key={item.title}>
             <span className="hidden my-5 text-gray-400 text-center md:text-left lg:block">{item.title}</span>
             <div className="flex flex-col justify-start items-start gap-2 text-[0.9rem] text-gray-500">
               {item.items.map(i => (
                   <Link
                     href={i.href}
                     className="flex justify-center items-center gap-4 rounded-sm w-full p-1.5 hover:bg-HTSkyLight md:justify-start"
+                    key={i.label}
                   >
                     {i.icon}
-                    <span className="hidden md:block">{i.label}</span>
+                    <span className="hidden md:block md:text-[0.7rem] lg:text-[0.9rem]">{i.label}</span>
                   </Link>
               ))}
             </div>

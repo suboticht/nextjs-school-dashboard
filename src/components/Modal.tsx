@@ -83,7 +83,7 @@ const Modal = (
   return (
     <>
         <button
-            className='bg-HTPurple rounded-full p-2'
+            className={`${type === 'edit' ? 'bg-HTSky' : 'bg-HTPurple'} rounded-full p-2`}
             onClick={() => setOpen(!open)}
         >
             {type === "delete" ? <AiTwotoneDelete size={20} style={{color: "white"}} /> : <FaEdit size={20} style={{color: "white"}} />}

@@ -16,25 +16,25 @@ export default function page() {
     <div className="flex flex-col justify-between items-start gap-4 md:flex-row">
       <div className="flex flex-col gap-7 w-full md:w-2/3">
         <div className="flex flex-wrap justify-between items-center w-full gap-2">
-          <UserCard type="Students" />
-          <UserCard type="Teachers" />
-          <UserCard type="Parents" />
-          <UserCard type="Staffs" />
+          <UserCard type="Students" size="sm" />
+          <UserCard type="Teachers" size="sm" />
+          <UserCard type="Parents" size="sm" />
+          <UserCard type="Staffs" size="sm" />
         </div>
         <div className="flex flex-col justify-between items-start gap-4 md:flex-row">
-          <div className="bg-white w-full h-[450px] rounded-xl p-4 md:w-1/3">
-            <div className="flex justify-between items-center">
-              <p className="font-bold text-lg">Students</p>
-              <MdOutlineMoreHoriz size={30} style={{color: "gray"}} />
-            </div>
-            <StudentsChart />
-          </div>
           <div className="bg-white w-full h-[450px] rounded-xl p-4 md:w-2/3">
             <div className="flex justify-between items-center">
               <p className="font-bold text-lg">Attendance</p>
               <MdOutlineMoreHoriz size={30} style={{color: "gray"}} />
             </div>
             <AttendanceChart />
+          </div>
+          <div className="bg-white w-full h-[450px] rounded-xl p-4 md:w-1/3">
+            <div className="flex justify-between items-center">
+              <p className="font-bold text-lg">Students</p>
+              <MdOutlineMoreHoriz size={30} style={{color: "gray"}} />
+            </div>
+            <StudentsChart />
           </div>
         </div>
         <div className="w-full h-[600px] bg-white rounded-xl p-4">

@@ -14,7 +14,7 @@ export default function HTCalendar() {
         <div className="flex flex-col gap-4 rounded-md bg-white p-4">
             <Calendar onChange={setValue} value={value} />
             <div className="flex justify-between items-center">
-                <p className="font-bold text-lg">Finance</p>
+                <p className="font-bold text-lg">Events</p>
                 <MdOutlineMoreHoriz size={30} style={{color: "gray"}} />
             </div>
             <div className="flex flex-col gap-4">

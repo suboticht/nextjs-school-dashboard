@@ -84,8 +84,8 @@ const Row = ( item: Student ) => (
 export default function Students() {
   return (
     <div className='bg-white p-4 rounded-md'>
-      <div className="flex justify-between items-center">
-        <h2 className='font-medium text-xl'>All Students</h2>
+    <div className="flex justify-between items-center w-full">
+      <h2 className='font-medium w-0 text-xl invisible md:visible md:w-auto'>All Students</h2>
         <TableSearch />
       </div>
       {/* {Table} */}

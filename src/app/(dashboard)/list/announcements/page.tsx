@@ -48,8 +48,8 @@ const Row = ( item: Teacher ) => (
 export default function Announcements() {
   return (
     <div className='bg-white p-4 rounded-md'>
-      <div className="flex justify-between items-center">
-        <h2 className='font-medium text-xl'>All Announcements</h2>
+      <div className="flex justify-between items-center w-full">
+        <h2 className='font-medium w-0 text-xl invisible md:visible md:w-auto'>All Announcements</h2>
         <TableSearch />
       </div>
       {/* {Table} */}
