@@ -10,12 +10,12 @@ const data = [
     },
     {
         name: 'Girls',
-        count: 46,
+        count: 45,
         fill: '#e2ef70',
     },
     {
         name: 'Boys',
-        count: 50,
+        count: 55,
         fill: '#70e4ef',
     },
 ];
@@ -54,13 +54,13 @@ export default function
         <div className="flex justify-center items-center gap-10">
             <div className="flex flex-col justify-center items-start gap-1">
                 <div className="w-5 h-5 bg-HTSky rounded-full"></div>
-                <p className='font-bold'>1,234</p>
+                <p className='font-bold'>55</p>
                 <p className='text-[0.75rem] text-gray-300'>Boys (55%)</p>
             </div>
             <div className="flex flex-col justify-center items-start gap-1">
                 <div className="w-5 h-5 bg-HTYellow rounded-full"></div>
-                <p className='font-bold'>1,234</p>
-                <p className='text-[0.75rem] text-gray-300'>Boys (55%)</p>
+                <p className='font-bold'>45</p>
+                <p className='text-[0.75rem] text-gray-300'>Girls (45%)</p>
             </div>
         </div>
     </div>

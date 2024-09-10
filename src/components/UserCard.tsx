@@ -7,7 +7,7 @@ const UserCard = ({ type, size } : { type : string, size: "sm" | "lg" }) => {
             <p className="bg-white text-green-600 text-[0.6rem] rounded-full px-1.5 py-1">2024/25</p>
             <MdOutlineMoreHoriz size={30} style={{color: "white"}} />
         </div>
-        <p className="font-bold text-2xl">1,123</p>
+        <p className="font-bold text-2xl">2,423</p>
         <p className="text-black text-sm">{type}</p>
     </div>
   )
