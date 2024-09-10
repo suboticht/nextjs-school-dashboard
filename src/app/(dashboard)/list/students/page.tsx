@@ -1,5 +1,6 @@
+"use client"
 import TableSearch from '@/components/TableSearch'
-import React from 'react'
+import React, { useState } from 'react'
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import { studentsData as data } from '@/lib/data'
@@ -7,17 +8,18 @@ import Image from 'next/image';
 import { IoEyeOutline } from "react-icons/io5";
 import Link from 'next/link';
 import Modal from '@/components/Modal';
+import { sortObjects } from '@/ultis/sortObjects';
 
 type Student = {
-  id: number,
-  studentId: string,
-  name: string,
-  email: string,
-  photo: string,
-  phone: string,
-  grade: string,
-  class: string,
-  address: string,
+  id: number;
+  studentId: string;
+  name: string;
+  email: string;
+  photo: string;
+  phone: string;
+  grade: number;
+  class: string;
+  address: string;
 }
 
 const columns = [
@@ -82,14 +84,21 @@ const Row = ( item: Student ) => (
 )
 
 export default function Students() {
+  const [dataStudent, setDataStudent] = useState<Student[]>(data);
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+  const handleSort = () => {
+    const sortedData = sortObjects([...dataStudent], isAscending);
+    setDataStudent(sortedData);
+    setIsAscending(!isAscending);
+  };
   return (
     <div className='bg-white p-4 rounded-md'>
     <div className="flex justify-between items-center w-full">
       <h2 className='font-medium w-0 text-xl invisible md:visible md:w-auto'>All Students</h2>
-        <TableSearch />
+        <TableSearch onSort={handleSort} isAscending={isAscending} />
       </div>
       {/* {Table} */}
-      <Table Row={Row} columns={columns} data={data}  />
+      <Table Row={Row} columns={columns} data={dataStudent}  />
       {/* {Pagination} */}
       <Pagination />
     </div>

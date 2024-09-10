@@ -8,7 +8,7 @@ export default function Profile() {
   return (
     <div className="flex flex-col justify-between items-start gap-4 md:flex-row">
       <div className="flex flex-col gap-7 w-full md:w-2/3 lg:w-1/2">
-        <div className="bg-white rounded-xl p-8">
+        <div className="bg-white rounded-xl p-4 md:p-8">
           <div className="hidden md:flex items-center justify-between rounded-full border-gray-300 border-[1px] bg-transparent min-w-56 p-2">
             <IoIosSearch size={20} style={{color: "gray", marginRight: "0.8rem"}} />
             <input
@@ -22,13 +22,13 @@ export default function Profile() {
         </div>
       </div>
       <div className="flex flex-col gap-4 w-full md:w-1/3 lg:w-1/2">
-        <div className="flex flex-wrap justify-between items-center rounded-xl w-full gap-2 bg-white p-8">
+        <div className="flex flex-wrap justify-between items-center rounded-xl w-full gap-2 bg-white p-4 md:p-8">
           <UserCard type="My exercises" size="lg" />
           <UserCard type="My classes" size="lg" />
           <UserCard type="Total sessions" size="lg" />
           <UserCard type="Total minutes" size="lg"/>
         </div>
-        <div className="rounded-xl w-full gap-2 bg-white p-8">
+        <div className="rounded-xl w-full gap-2 bg-white p-4 md:p-8">
           <div className="flex justify-between items-center mb-5">
               <p className="font-bold text-lg">Monthly Usage</p>
           </div>

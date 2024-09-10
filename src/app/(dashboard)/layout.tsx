@@ -12,6 +12,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <div className="flex w-full justify-center overflow-y-scroll">
       <div className="flex flex-col h-screen w-[14%] p-1 md:p-3 sm:w-[16%] md:w-[22%] lg:w-[18%] xl:w-[14%]">

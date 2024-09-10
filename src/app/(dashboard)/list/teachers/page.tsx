@@ -1,5 +1,6 @@
+"use client"
 import TableSearch from '@/components/TableSearch'
-import React from 'react'
+import React, {useState} from 'react'
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import { teachersData as data } from '@/lib/data'
@@ -7,6 +8,7 @@ import Image from 'next/image';
 import { IoEyeOutline } from "react-icons/io5";
 import Link from 'next/link';
 import Modal from '@/components/Modal';
+import { sortObjects } from '@/ultis/sortObjects';
 
 type Teacher = {
   id: number,
@@ -87,14 +89,22 @@ const Row = ( item: Teacher ) => (
 )
 
 export default function Teacher() {
+  const [dataTeacher, setDataTeacher] = useState<Teacher[]>(data);
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+  const handleSort = () => {
+    const sortedData = sortObjects([...dataTeacher], isAscending);
+    setDataTeacher(sortedData);
+    setIsAscending(!isAscending);
+  };
+  
   return (
     <div className='bg-white p-4 rounded-md'>
-    <div className="flex justify-between items-center w-full">
-      <h2 className='font-medium w-0 text-xl invisible md:visible md:w-auto'>All Teachers</h2>
-        <TableSearch />
+      <div className="flex justify-between items-center w-full">
+        <h2 className='font-medium w-0 text-xl invisible md:visible md:w-auto'>All Teachers</h2>
+        <TableSearch onSort={handleSort} isAscending={isAscending} />
       </div>
       {/* {Table} */}
-      <Table Row={Row} columns={columns} data={data}  />
+      <Table Row={Row} columns={columns} data={dataTeacher}  />
       {/* {Pagination} */}
       <Pagination />
     </div>

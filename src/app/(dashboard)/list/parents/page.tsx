@@ -1,12 +1,13 @@
+"use client"
 import TableSearch from '@/components/TableSearch'
-import React from 'react'
+import React, { useState } from 'react'
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import { parentsData as data } from '@/lib/data'
-import Image from 'next/image';
 import { IoEyeOutline } from "react-icons/io5";
 import Link from 'next/link';
 import Modal from '@/components/Modal';
+import { sortObjects } from '@/ultis/sortObjects';
 
 type Parent = {
   id: number,
@@ -63,14 +64,22 @@ const Row = ( item: Parent ) => (
 )
 
 export default function Parents() {
+  const [dataParent, setDataParent] = useState<Parent[]>(data);
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+  const handleSort = () => {
+    const sortedData = sortObjects([...dataParent], isAscending);
+    setDataParent(sortedData);
+    setIsAscending(!isAscending);
+  };
+  
   return (
     <div className='bg-white p-4 rounded-md'>
       <div className="flex justify-between items-center">
         <h2 className='font-medium text-xl'>All Parents</h2>
-        <TableSearch />
+        <TableSearch onSort={handleSort} isAscending={isAscending} />
       </div>
       {/* {Table} */}
-      <Table Row={Row} columns={columns} data={data}  />
+      <Table Row={Row} columns={columns} data={dataParent}  />
       {/* {Pagination} */}
       <Pagination />
     </div>

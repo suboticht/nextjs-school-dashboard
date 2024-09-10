@@ -1,8 +1,14 @@
 import { IoIosSearch } from "react-icons/io";
 import { IoFilterSharp } from "react-icons/io5";
 import { BsSortDown } from "react-icons/bs";
+import { BsSortUp } from "react-icons/bs";
 
-export default function TableSearch() {
+interface TableSearchProps {
+  onSort: () => void;
+  isAscending: boolean;
+}
+
+export default function TableSearch({onSort, isAscending} : TableSearchProps) {
   return (
     <div className="flex flex-col w-full items-center justify-end gap-2 md:flex-row md:w-auto">
       <div className="w-full md:w-auto">
@@ -23,7 +29,7 @@ export default function TableSearch() {
           <IoFilterSharp size={20} />
         </button>
         <button className="bg-HTYellow h-full p-2 rounded-full hover:opacity-80">
-          <BsSortDown size={20} />
+          {isAscending ? <BsSortDown size={20} onClick={onSort} /> : <BsSortUp size={20} onClick={onSort} />}
         </button>
       </div>
     </div>

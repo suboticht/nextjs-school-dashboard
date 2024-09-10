@@ -1,11 +1,13 @@
+"use client"
 import TableSearch from '@/components/TableSearch'
-import React from 'react'
+import React, { useState } from 'react'
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import { announcementsData as data } from '@/lib/data'
 import Modal from '@/components/Modal';
+import { sortObjects } from '@/ultis/sortObjects';
 
-type Teacher = {
+type Announcement = {
   id: number,
   title: string,
   class: string,
@@ -31,7 +33,7 @@ const columns = [
   },
 ];
 
-const Row = ( item: Teacher ) => (
+const Row = ( item: Announcement ) => (
   <tr className='hover:bg-HTPurpleLight border-b-[1px] even:bg-gray-100' key={item.id}>
     <td className='p-4'>{item.title}</td>
     <td className='p-4'>{item.class}</td>
@@ -46,14 +48,21 @@ const Row = ( item: Teacher ) => (
 )
 
 export default function Announcements() {
+  const [dataAnnouncement, setDataAnnouncement] = useState<Announcement[]>(data);
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+  const handleSort = () => {
+    const sortedData = sortObjects([...dataAnnouncement], isAscending);
+    setDataAnnouncement(sortedData);
+    setIsAscending(!isAscending);
+  };
   return (
     <div className='bg-white p-4 rounded-md'>
       <div className="flex justify-between items-center w-full">
         <h2 className='font-medium w-0 text-xl invisible md:visible md:w-auto'>All Announcements</h2>
-        <TableSearch />
+        <TableSearch onSort={handleSort} isAscending={isAscending} />
       </div>
       {/* {Table} */}
-      <Table Row={Row} columns={columns} data={data}  />
+      <Table Row={Row} columns={columns} data={dataAnnouncement}  />
       {/* {Pagination} */}
       <Pagination />
     </div>

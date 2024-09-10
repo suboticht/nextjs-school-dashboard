@@ -7,7 +7,7 @@ import { RiWechatChannelsFill } from 'react-icons/ri'
 
 const ProfileInfo = ({ name, image } : { name:string, image:string }) => {
   return (
-    <div className='my-10 bg-slate-100 rounded-md p-6'>
+    <div className='my-2 md:my-10 bg-slate-100 rounded-md p-4 md:p-6'>
         <div className="flex justify-between items-center border-b border-stroke pb-3">
             <p className="font-bold text-lg">{name}</p>
             <MdOutlineMoreHoriz size={30} style={{color: "gray"}} />
